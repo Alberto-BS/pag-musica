@@ -1,16 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { ArtistFormComponent } from './artist-form/artist-form.component';
+import { GroupFormComponent } from './group-form/group-form.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styles: [`
-    .main {
-      background-color: #f0f0f0;
-      padding: 20px;
-    }
-  `]
+  styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
   title = 'pag-musica';
   generoMusical: any[] = [
@@ -34,25 +32,24 @@ export class AppComponent implements OnInit {
   ];
 
   contactForm = new FormGroup({
-    nombreGrupo: new FormControl(),
-    fechaGrupo: new FormControl(),
-    tieneGrupo: new FormControl()
+    tieneGrupo: new FormControl('no')
   });
-    artistFormComponent: any;
 
-  constructor() {
-    this.contactForm.get('tieneGrupo')?.setValue('no');
-  }
+  @ViewChild('artistForm') artistFormComponent!: ArtistFormComponent;
+  @ViewChild('groupForm') groupFormComponent!: GroupFormComponent;
+  groupForm: any;
+
+  constructor() { }
 
   ngOnInit() {
   }
 
-  onSubmit() {
-    console.log('Valor del formulario principal:', this.contactForm.value);
-    console.log('Valor del formulario de artistas:', this.artistFormComponent.artistForm.value);
-  }
-
-  get result() {
-    return this.generoMusical.filter(item => item.checked);
+  onSubmit(artistForm: ArtistFormComponent, groupForm: any) {
+    console.log('Valor del formulario de artistas:', artistForm.artistForm.value);
+    if (groupForm) {
+      console.log('Valor del formulario de grupo:', groupForm.groupForm.value);
+    } else {
+      console.log('No hay formulario de grupo');
+    }
   }
 }

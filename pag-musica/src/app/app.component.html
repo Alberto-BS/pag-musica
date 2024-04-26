@@ -1,53 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grupos y artistas</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    .main {
-      background-color: #f0f0f0;
-      padding: 20px;
-    }
-  </style>
-</head>
-<body>
-  <main class="main container my-5">
-    <div class="content">
-      <form [formGroup]="contactForm">
-        <h1 class="mb-4">Grupos y artistas</h1>
-        <div class="form-group">
-          <label for="tieneGrupo">¿Forma parte de un grupo?</label>
-        </div>
-        <div class="form-group">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" value="no" id="no" name="tieneGrupo" formControlName="tieneGrupo" checked />
-            <label class="form-check-label" for="no">No</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" value="si" id="si" name="tieneGrupo" formControlName="tieneGrupo" />
-            <label class="form-check-label" for="si">Sí</label>
-          </div>
-        </div>
-        <div *ngIf="this.contactForm.get('tieneGrupo')?.value === 'si'">
-          <div class="form-group">
-            <h3>Grupo</h3>
-            <label for="nombreGrupo">Nombre del grupo:</label>
-            <input type="text" class="form-control" id="nombreGrupo" name="nombreGrupo" formControlName="nombreGrupo" />
-          </div>
-          <div class="form-group">
-            <label for="fechaGrupo">Fecha de formación del grupo:</label>
-            <input type="date" class="form-control" id="fechaGrupo" name="fechaGrupo" formControlName="fechaGrupo" />
-          </div>
-        </div>
-        <app-artist-form [generoMusical]="generoMusical"></app-artist-form>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Enviar</button>
-        </div>
-      </form>
+<div class="content">
+  <h1 class="mb-4">Grupos y artistas</h1>
+  <form [formGroup]="contactForm">
+    <div class="form-group">
+      <label for="tieneGrupo">¿Forma parte de un grupo?</label>
     </div>
-  </main>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+    <div class="form-group">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" value="no" id="no" name="tieneGrupo" formControlName="tieneGrupo" checked />
+        <label class="form-check-label" for="no">No</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" value="si" id="si" name="tieneGrupo" formControlName="tieneGrupo" />
+        <label class="form-check-label" for="si">Sí</label>
+      </div>
+    </div>
+    <div *ngIf="this.contactForm.get('tieneGrupo')?.value === 'si'">
+      <app-group-form #formGroup></app-group-form>
+    </div>
+    <app-artist-form #artistForm [generoMusical]="generoMusical"></app-artist-form>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" (click)="onSubmit(artistForm, groupForm)">Enviar</button>
+    </div>
+  </form>
+</div>
