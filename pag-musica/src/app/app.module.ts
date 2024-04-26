@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArtistFormComponent } from './artist-form/artist-form.component';
 import { GroupFormComponent } from './group-form/group-form.component';
+import { FormContainerComponent } from './form-container/form-container.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArtistFormComponent,
     GroupFormComponent,
+    FormContainerComponent
   ],
   imports: [
     BrowserModule,
