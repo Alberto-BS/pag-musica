@@ -17,7 +17,6 @@ import { ArtistFormComponent } from './artist-form/artist-form.component';
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      // Agrega tus rutas aquí
     ])
   ],
   providers: [],

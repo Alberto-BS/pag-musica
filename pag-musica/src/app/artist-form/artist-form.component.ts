@@ -55,12 +55,6 @@ export class ArtistFormComponent {
     console.log(this.artistForm.value);
   }
 
-  toggleGroupFields() {
-    if (this.artistForm) {
-      this.hasGroup = this.artistForm.get('hasGroup')?.value || false;
-    }
-  }
-
   toggleMusicalStyle(style: string) {
     if (this.selectedMusicalStyles.includes(style)) {
       this.selectedMusicalStyles = this.selectedMusicalStyles.filter(s => s !== style);
