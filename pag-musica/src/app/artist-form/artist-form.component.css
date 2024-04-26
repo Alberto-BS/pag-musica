@@ -1,11 +1,11 @@
-/* app.component.css */
+/* artist-form.component.css */
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #f5f5f5;
 }
 
-.main-container {
+.container {
   max-width: 800px;
   margin: 0 auto;
   padding: 40px 20px;
@@ -41,21 +41,6 @@ body {
     border-color: #007bff;
   }
 
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-  color: #fff;
-  font-weight: 600;
-  padding: 12px 24px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-  .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004a9b;
-  }
-
 .genre-container {
   display: flex;
   flex-wrap: wrap;
@@ -74,4 +59,19 @@ body {
   .genre-container .form-check-input:checked + .form-check-label {
     font-weight: 600;
     color: #007bff;
+  }
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004a9b;
   }

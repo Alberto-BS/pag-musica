@@ -1,11 +1,11 @@
-/* app.component.css */
+/* group-form.component.css */
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #f5f5f5;
 }
 
-.main-container {
+.content {
   max-width: 800px;
   margin: 0 auto;
   padding: 40px 20px;
@@ -54,24 +54,4 @@ body {
   .btn-primary:hover {
     background-color: #0056b3;
     border-color: #004a9b;
-  }
-
-.genre-container {
-  display: flex;
-  flex-wrap: wrap;
-  margin: -8px;
-}
-
-  .genre-container .form-check {
-    margin: 8px;
-  }
-
-  .genre-container .form-check-label {
-    font-size: 14px;
-    color: #555;
-  }
-
-  .genre-container .form-check-input:checked + .form-check-label {
-    font-weight: 600;
-    color: #007bff;
   }
