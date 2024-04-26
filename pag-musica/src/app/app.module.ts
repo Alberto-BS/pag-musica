@@ -1,16 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { ArtistFormComponent } from './artist-form/artist-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
+    ArtistFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      // Agrega tus rutas aquí
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
