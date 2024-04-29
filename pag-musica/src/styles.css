@@ -20,6 +20,8 @@ body {
     z-index: -1;
   }
 
+  /* Header/Navbar */
+
 header {
   background-color: #1b1b1b;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -108,6 +110,8 @@ header {
   font-size: 1.25rem;
   color: #fff;
 }
+
+/* Container */
 
 .main-container {
   max-width: 800px;
@@ -241,7 +245,7 @@ header {
   }
 }
 
-/* Estilos para computadoras de escritorio */
+/* Estilos para escritorio */
 @media (min-width: 992px) {
   .form-container {
     width: 500px;
