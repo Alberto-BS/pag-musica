@@ -1,25 +1,53 @@
-<div class="container my-5">
-  <h1 class="mb-4">Grupos y artistas</h1>
-  <form [formGroup]="contactForm">
-    <div class="form-group">
-      <label for="tieneGrupo">¿Forma parte de un grupo?</label>
+<header>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg">
+        <div class="logo">
+          <img src="./img/logo.png" alt="Logo" width="150px" height="75px" />
+        </div>
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" aria-current="page" href="#">Inicio</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Enlace</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Enlace</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Enlace</a></li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="./signin.html">Iniciar sesión</a></li>
+              <li class="nav-item"><a class="nav-link" href="./form.html">Regístrate</a></li>
+            </ul>
+          </div>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Busca aquí..." aria-label="Search" />
+            <button class="btn btn-dark" type="submit">Buscar</button>
+          </form>
+        </div>
+      </nav>
+      <h1 class="display-4">Nombre de la web</h1>
+      <p>Descripción de la web</p>
     </div>
-    <div class="form-group">
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" value="no" id="no" name="tieneGrupo" formControlName="tieneGrupo" checked />
-        <label class="form-check-label" for="no">No</label>
+  </div>
+</header>
+<div class="main-container">
+    <h1 class="mb-4">Grupos y artistas</h1>
+    <form [formGroup]="contactForm">
+      <div class="form-group"> <label for="tieneGrupo">¿Forma parte de un grupo?</label> </div>
+      <div class="form-group">
+        <div class="form-check form-check-inline"> <input class="form-check-input" type="radio" value="no" id="no" name="tieneGrupo" formControlName="tieneGrupo" checked /> <label class="form-check-label" for="no">No</label> </div>
+        <div class="form-check form-check-inline"> <input class="form-check-input" type="radio" value="si" id="si" name="tieneGrupo" formControlName="tieneGrupo" /> <label class="form-check-label" for="si">Sí</label> </div>
       </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" value="si" id="si" name="tieneGrupo" formControlName="tieneGrupo" />
-        <label class="form-check-label" for="si">Sí</label>
+      <div *ngIf="this.contactForm.get('tieneGrupo')?.value === 'si'">
+        <app-group-form></app-group-form>
       </div>
-    </div>
-    <div *ngIf="this.contactForm.get('tieneGrupo')?.value === 'si'">
-      <app-group-form></app-group-form>
-    </div>
-    <app-artist-form [generoMusical]="generoMusical"></app-artist-form>
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary" (click)="onSubmit()">Enviar</button>
-    </div>
-  </form>
-</div>
+      <div class="form-group">
+        <app-artist-form [generoMusical]="generoMusical"></app-artist-form>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Enviar</button>
+      </div>
+    </form>
+  </div>
