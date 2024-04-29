@@ -25,14 +25,11 @@ export class AppComponent {
     console.log(this.disco.nombres);
   }
   addCancion() {
-    let cancion = this.contactForm.get("cancion")?.value;
-    this.disco.cancion.push(cancion);
+    this.disco.cancion.push(this.contactForm.get("cancion")?.value);
     let ul = document.getElementById("canciones");
-    for (let c of cancion) {
       let li = document.createElement("li");
-      li.textContent = c;
+    li.textContent = this.contactForm.get("cancion")?.value;
       ul?.appendChild(li);
-    }
     console.log(this.disco.cancion);
   }
 }
