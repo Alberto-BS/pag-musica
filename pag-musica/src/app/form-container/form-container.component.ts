@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ArtistFormComponent } from '../artist-form/artist-form.component';
 import { GroupFormComponent } from '../group-form/group-form.component';
 
@@ -31,7 +31,7 @@ export class FormContainerComponent implements OnInit {
   ];
 
   contactForm = new FormGroup({
-    tieneGrupo: new FormControl('no')
+    tieneGrupo: new FormControl('no', Validators.required)
   });
 
   @ViewChild(ArtistFormComponent) artistFormComponent!: ArtistFormComponent;
