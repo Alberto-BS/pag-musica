@@ -195,3 +195,63 @@ header {
     font-weight: 600;
     color: #2e86c1;
   }
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .nav-item {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .form-container {
+    width: 100%;
+  }
+
+  .display-4 {
+    font-size: 2rem;
+  }
+
+  .jumbotron p {
+    font-size: 1rem;
+  }
+}
+
+/* Estilos para tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+  .form-container {
+    width: 600px;
+  }
+
+  .display-4 {
+    font-size: 2.25rem;
+  }
+
+  .jumbotron p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Estilos para computadoras de escritorio */
+@media (min-width: 992px) {
+  .form-container {
+    width: 500px;
+  }
+
+  .display-4 {
+    font-size: 2.5rem;
+  }
+
+  .jumbotron p {
+    font-size: 1.25rem;
+  }
+}
