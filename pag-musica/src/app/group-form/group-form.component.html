@@ -1,7 +1,22 @@
 <div class="form-container">
   <h3>Grupo</h3>
   <form [formGroup]="groupForm">
-    <div class="form-group"> <label for="nombreGrupo">Nombre del grupo:</label> <input type="text" class="form-control" id="nombreGrupo" name="nombreGrupo" formControlName="nombreGrupo" /> </div>
-    <div class="form-group"> <label for="fechaGrupo">Fecha de formación del grupo:</label> <input type="date" class="form-control" id="fechaGrupo" name="fechaGrupo" formControlName="fechaGrupo" /> </div>
+    <div class="form-group">
+      <label for="nombreGrupo">Nombre del grupo:</label>
+      <input type="text" class="form-control" id="nombreGrupo" name="nombreGrupo" formControlName="nombreGrupo" />
+      <div *ngIf="groupForm.get('nombreGrupo')?.invalid && (groupForm.get('nombreGrupo')?.dirty || groupForm.get('nombreGrupo')?.touched)">
+        <div *ngIf="groupForm.get('nombreGrupo')?.errors?.['required']">El nombre del grupo es requerido.</div>
+        <div *ngIf="groupForm.get('nombreGrupo')?.errors?.['minlength']">El nombre del grupo debe tener al menos 3 caracteres.</div>
+        <div *ngIf="groupForm.get('nombreGrupo')?.errors?.['maxlength']">El nombre del grupo no puede tener más de 50 caracteres.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="fechaGrupo">Fecha de formación del grupo:</label>
+      <input type="date" class="form-control" id="fechaGrupo" name="fechaGrupo" formControlName="fechaGrupo" />
+      <div *ngIf="groupForm.get('fechaGrupo')?.invalid && (groupForm.get('fechaGrupo')?.dirty || groupForm.get('fechaGrupo')?.touched)">
+        <div *ngIf="groupForm.get('fechaGrupo')?.errors?.['required']">La fecha de formación del grupo es requerida.</div>
+        <div *ngIf="groupForm.get('fechaGrupo')?.errors?.['fechaFutura']">La fecha de formación del grupo no puede ser en el futuro.</div>
+      </div>
+    </div>
   </form>
 </div>

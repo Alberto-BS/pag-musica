@@ -1,17 +1,51 @@
 <div class="form-container">
   <h3>Artistas</h3>
   <form [formGroup]="artistForm" (ngSubmit)="onSubmit()">
-    <div class="form-group"> <label for="nombreArtistico">Nombre artístico:</label> <input type="text" class="form-control" id="nombreArtistico" name="nombreArtistico" formControlName="nombreArtistico" /> </div>
-    <div class="form-group"> <label for="nombrePersona">Nombre persona:</label> <input type="text" class="form-control" id="nombrePersona" name="nombrePersona" formControlName="nombrePersona" /> </div>
-    <div class="form-group"> <label for="fechaNacimiento">Fecha de nacimiento:</label> <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" formControlName="fechaNacimiento" /> </div>
+    <div class="form-group">
+      <label for="nombreArtistico">Nombre artístico:</label>
+      <input type="text" class="form-control" id="nombreArtistico" name="nombreArtistico" formControlName="nombreArtistico" />
+      <div *ngIf="artistForm.get('nombreArtistico')?.invalid && (artistForm.get('nombreArtistico')?.dirty || artistForm.get('nombreArtistico')?.touched)">
+        <div *ngIf="artistForm.get('nombreArtistico')?.errors?.['required']">El nombre artístico es requerido.</div>
+        <div *ngIf="artistForm.get('nombreArtistico')?.errors?.['minlength']">El nombre artístico debe tener al menos 3 caracteres.</div>
+        <div *ngIf="artistForm.get('nombreArtistico')?.errors?.['maxlength']">El nombre artístico no puede tener más de 50 caracteres.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="nombrePersona">Nombre persona:</label>
+      <input type="text" class="form-control" id="nombrePersona" name="nombrePersona" formControlName="nombrePersona" />
+      <div *ngIf="artistForm.get('nombrePersona')?.invalid && (artistForm.get('nombrePersona')?.dirty || artistForm.get('nombrePersona')?.touched)">
+        <div *ngIf="artistForm.get('nombrePersona')?.errors?.['required']">El nombre de la persona es requerido.</div>
+        <div *ngIf="artistForm.get('nombrePersona')?.errors?.['minlength']">El nombre de la persona debe tener al menos 3 caracteres.</div>
+        <div *ngIf="artistForm.get('nombrePersona')?.errors?.['maxlength']">El nombre de la persona no puede tener más de 50 caracteres.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="fechaNacimiento">Fecha de nacimiento:</label>
+      <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" formControlName="fechaNacimiento" />
+      <div *ngIf="artistForm.get('fechaNacimiento')?.invalid && (artistForm.get('fechaNacimiento')?.dirty || artistForm.get('fechaNacimiento')?.touched)">
+        <div *ngIf="artistForm.get('fechaNacimiento')?.errors?.['required']">La fecha de nacimiento es requerida.</div>
+        <div *ngIf="artistForm.get('fechaNacimiento')?.errors?.['fechaFutura']">La fecha de nacimiento no puede ser en el futuro.</div>
+      </div>
+    </div>
     <h3>¿Cual es el genero musical del artista?</h3>
     <div class="form-group genero-musical">
-      <div *ngFor="let item of generoMusical" class="form-check form-check-inline"> <input class="form-check-input" type="checkbox" [checked]="item.checked" (change)="toggleGenre(item)" /> <label class="form-check-label">{{ item.title }}</label> </div>
+      <div *ngFor="let item of generoMusical" class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" [checked]="item.checked" (change)="toggleGenre(item)" />
+        <label class="form-check-label">{{ item.title }}</label>
+      </div>
     </div>
-    <div class="form-group"> <label for="nacionalidad">Nacionalidad:</label> <input type="text" class="form-control" id="nacionalidad" name="nacionalidad" formControlName="nacionalidad" /> </div>
+    <div class="form-group">
+      <label for="nacionalidad">Nacionalidad:</label>
+      <input type="text" class="form-control" id="nacionalidad" name="nacionalidad" formControlName="nacionalidad" />
+      <div *ngIf="artistForm.get('nacionalidad')?.invalid && (artistForm.get('nacionalidad')?.dirty || artistForm.get('nacionalidad')?.touched)">
+        <div *ngIf="artistForm.get('nacionalidad')?.errors?.['required']">La nacionalidad es requerida.</div>
+        <div *ngIf="artistForm.get('nacionalidad')?.errors?.['minlength']">La nacionalidad debe tener al menos 3 caracteres.</div>
+        <div *ngIf="artistForm.get('nacionalidad')?.errors?.['maxlength']">La nacionalidad no puede tener más de 50 caracteres.</div>
+      </div>
+    </div>
     <div class="form-group">
       <label for="rolGrupo">Rol dentro del grupo:</label>
-      <select class="form-control" id="rolGrupo" name="rolGrupo" formControlName="rolGrupo">
+      <select class="form-control" id="rolGrupo" name="rolGrupo" formControlName="rolGrupo" required>
         <option value="">Selecciona un rol</option>
         <option value="vocalista">Vocalista</option>
         <option value="guitarrista">Guitarrista</option>
@@ -20,6 +54,9 @@
         <option value="tecladista">Tecladista</option>
         <option value="otro">Otro</option>
       </select>
+      <div *ngIf="artistForm.get('rolGrupo')?.invalid && (artistForm.get('rolGrupo')?.dirty || artistForm.get('rolGrupo')?.touched)">
+        <div *ngIf="artistForm.get('rolGrupo')?.errors?.['required']">El rol dentro del grupo es requerido.</div>
+      </div>
     </div>
   </form>
 </div>
