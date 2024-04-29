@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ArtistFormComponent } from './artist-form/artist-form.component';
 import { GroupFormComponent } from './group-form/group-form.component';
 import { FormContainerComponent } from './form-container/form-container.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormContainerComponent } from './form-container/form-container.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
