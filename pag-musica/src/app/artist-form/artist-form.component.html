@@ -1,6 +1,6 @@
 <div class="form-container">
   <h3>Artistas</h3>
-  <form [formGroup]="artistForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="this.artistForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="nombreArtistico">Nombre artístico:</label>
       <input type="text" class="form-control" id="nombreArtistico" name="nombreArtistico" formControlName="nombreArtistico" />
