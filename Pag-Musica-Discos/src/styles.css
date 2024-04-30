@@ -10,9 +10,10 @@ body {
 
 .titulo {
   text-align: center;
-  color: red;
+  color:rgb(215 42 18);
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: black;
+  font-size:3rem;
 }
 .pag {
   padding-top: 2%;

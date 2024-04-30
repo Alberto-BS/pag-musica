@@ -4,7 +4,7 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg">
         <div class="logo">
-          <img src="./img/logo.png" alt="Logo" width="150" height="75" />
+          <img src="../assets/img/icono.jpg" alt="Logo" width="75" height="75" />
         </div>
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,9 +12,9 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-              <li class="nav-item"><a class="nav-link" aria-current="page" href="#">Inicio</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Enlace</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Enlace</a></li>
+              <li class="nav-item"><a class="nav-link" aria-current="page" href="../index.html">DISCOS</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">ARTISTAS</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">GRUPO</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Enlace</a></li>
             </ul>
             <ul class="navbar-nav ms-auto">
@@ -28,8 +28,8 @@
           </form>
         </div>
       </nav>
-      <h1 class="display-4">Nombre de la web</h1>
-      <p>Descripción de la web</p>
+      <h1 class="display-4">HIBERUS.FM</h1>
+      <p>Los mejores discos para tu larga jornada de programacion.</p>
     </div>
   </div>
 </header>
@@ -75,24 +75,38 @@
       <div class="col-lg-6" id="div2">
 
         <form class="align-self-center" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-          <p>
-            <input type="text" placeholder="nombres" id="nombreD" formControlName="nombres" />
-          </p>
-          <p>
-            <input type="date" id="fechaD" formControlName="fechas" />
-          </p>
-          <p>
-            <input type="text" placeholder="artistas" id="artistaD" formControlName="artistas" />
-          </p>
-          <p>
-            <input type="text" placeholder="cancion" id="cancion" formControlName="cancion" /><br />
+            <input type="text" placeholder="nombres" class="form-control" id="nombreD" formControlName="nombres" />
+            <div *ngIf="contactForm.get('nombres')?.invalid && (contactForm.get('nombres')?.dirty || contactForm.get('nombres')?.touched)">
+              <div *ngIf="contactForm.get('nombres')?.errors?.['required']">El nombre de disco es requerido.</div>
+              <div *ngIf="contactForm.get('nombres')?.errors?.['minlength']">El nombre de disco debe tener al menos 3 caracteres.</div>
+              <div *ngIf="contactForm.get('nombres')?.errors?.['maxlength']">El nombre de disco no puede tener más de 50 caracteres.</div>
+            </div>
+
+            <input type="date" id="fechaD" class="form-control" formControlName="fechas" />
+            <div *ngIf="contactForm.get('fechas')?.invalid && (contactForm.get('fechas')?.dirty || contactForm.get('fechas')?.touched)">
+              <div *ngIf="contactForm.get('fechas')?.errors?.['required']">La fecha de lanzamiento es requerida.</div>
+              <div *ngIf="contactForm.get('fechas')?.errors?.['fechaFutura']">La fecha de lanzamiento no puede ser en el futuro.</div>
+            </div>
+
+            <input type="text" placeholder="artistas" id="artistaD" class="form-control" formControlName="artistas" />
+            <div *ngIf="contactForm.get('artistas')?.invalid && (contactForm.get('artistas')?.dirty || contactForm.get('artistas')?.touched)">
+              <div *ngIf="contactForm.get('artistas')?.errors?.['required']">El nombre artista es requerido.</div>
+              <div *ngIf="contactForm.get('artistas')?.errors?.['minlength']">El nombre artista debe tener al menos 3 caracteres.</div>
+              <div *ngIf="contactForm.get('artistas')?.errors?.['maxlength']">El nombre artista no puede tener más de 50 caracteres.</div>
+            </div>
+
+
+            <input type="text" placeholder="cancion" id="cancion" class="form-control" formControlName="cancion" /><br />
             <input type="button" value="añadir cancion" (click)="addCancion()" id="botonico" />
-          </p>
+   
+
           <ul id="canciones">
           </ul>
-          <p>
+
+     
             <button type="submit">Registrar Disco</button>
-          </p>
+       
+
         </form>
       </div>
 
