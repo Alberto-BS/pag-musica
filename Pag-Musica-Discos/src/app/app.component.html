@@ -75,7 +75,7 @@
       <div class="col-lg-6" id="div2">
 
         <form class="align-self-center" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-            <input type="text" placeholder="nombres" class="form-control" id="nombreD" formControlName="nombres" />
+            <input type="text" placeholder="Nombres" class="form-control" id="nombreD" formControlName="nombres" />
             <div *ngIf="contactForm.get('nombres')?.invalid && (contactForm.get('nombres')?.dirty || contactForm.get('nombres')?.touched)">
               <div *ngIf="contactForm.get('nombres')?.errors?.['required']">El nombre de disco es requerido.</div>
               <div *ngIf="contactForm.get('nombres')?.errors?.['minlength']">El nombre de disco debe tener al menos 3 caracteres.</div>
@@ -88,7 +88,7 @@
               <div *ngIf="contactForm.get('fechas')?.errors?.['fechaFutura']">La fecha de lanzamiento no puede ser en el futuro.</div>
             </div>
 
-            <input type="text" placeholder="artistas" id="artistaD" class="form-control" formControlName="artistas" />
+            <input type="text" placeholder="Artistas" id="artistaD" class="form-control" formControlName="artistas" />
             <div *ngIf="contactForm.get('artistas')?.invalid && (contactForm.get('artistas')?.dirty || contactForm.get('artistas')?.touched)">
               <div *ngIf="contactForm.get('artistas')?.errors?.['required']">El nombre artista es requerido.</div>
               <div *ngIf="contactForm.get('artistas')?.errors?.['minlength']">El nombre artista debe tener al menos 3 caracteres.</div>
@@ -96,15 +96,15 @@
             </div>
 
 
-            <input type="text" placeholder="cancion" id="cancion" class="form-control" formControlName="cancion" /><br />
-            <input type="button" value="añadir cancion" (click)="addCancion()" id="botonico" />
+            <input type="text" placeholder="Canción" id="cancion" class="form-control" formControlName="cancion" /><br />
+            <input class="btn-primary" type="button" value="Añadir canción" (click)="addCancion()" id="botonico" />
    
 
           <ul id="canciones">
           </ul>
 
      
-            <button type="submit">Registrar Disco</button>
+            <button class="btn-primary" type="submit">Registrar disco</button>
        
 
         </form>
@@ -116,13 +116,13 @@
         <div id="carouselExampleFade2" class="carousel slide carousel-fade">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="../assets/img/disco.jpg" class="d-block w-100" width="500" height="500" alt="../assets/img/disco2.jpg">
+             <img src="../assets/img/disco7.jpg" class="d-block w-100" width="500" height="500" alt="../assets/img/disco2.jpg">
             </div>
             <div class="carousel-item">
-              <img src="../assets/img/disco2.jpg" class="d-block w-100" width="500" height="500" alt="../assets/img/disco 3.jpg">
+              <img src="../assets/img/disco4.jpg" class="d-block w-100" width="500" height="500" alt="../assets/img/disco 3.jpg">
             </div>
             <div class="carousel-item">
-              <img src="../assets/img/disco_3.jpg" class="d-block w-100" width="500" height="500" alt="../assets/img/disco.jpg">
+              <img src="../assets/img/disco 6.jpg" class="d-block w-100" width="500" height="500" alt="../assets/img/disco.jpg">
             </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade2" data-bs-slide="prev">
