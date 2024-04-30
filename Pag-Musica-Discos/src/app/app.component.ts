@@ -23,7 +23,12 @@ export class AppComponent {
     console.log(this.disco.nombres);
   }
   addCancion() {
-    this.disco.cancion.push(this.contactForm.get("cancion")?.value);
+    let cancion = this.contactForm.get("cancion")?.value;
+    this.disco.cancion.push(cancion);
+    let ul = document.getElementById("canciones");
+    let li = document.createElement("li");
+    li.textContent = cancion;
+    ul?.appendChild(li);
     console.log(this.disco.cancion);
   }
 
