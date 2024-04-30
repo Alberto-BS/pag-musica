@@ -20,7 +20,7 @@ body {
     z-index: -1;
   }
 
-  /* Header/Navbar */
+/* Header/Navbar */
 
 header {
   background-color: #1b1b1b;
@@ -135,7 +135,7 @@ header {
 .title {
   font-size: 24px;
   font-weight: 600;
-  color: #5dade2;
+  color: #c63c3c;
   margin-bottom: 20px;
 }
 
@@ -145,12 +145,12 @@ header {
 
   .form-group label {
     font-weight: 600;
-    color: #5dade2;
+    color: #c63c3c;
     margin-bottom: 8px;
   }
 
 .form-control {
-  border: 1px solid #3498db;
+  border: 1px solid #c63c3c;
   border-radius: 4px;
   padding: 12px 16px;
   font-size: 16px;
@@ -161,12 +161,12 @@ header {
 
   .form-control:focus {
     outline: none;
-    border-color: #2e86c1;
+    border-color: #b32d2d;
   }
 
 .btn-primary {
-  background-color: #2e86c1;
-  border-color: #2e86c1;
+  background-color: #b32d2d;
+  border-color: #b32d2d;
   color: #f5f5f5;
   font-weight: 600;
   padding: 12px 24px;
@@ -176,8 +176,8 @@ header {
 
   .btn-primary:hover {
     background-color: #f5f5f5;
-    border-color: #2e86c1;
-    color: #2e86c1;
+    border-color: #b32d2d;
+    color: #b32d2d;
   }
 
 .genre-container {
@@ -197,7 +197,7 @@ header {
 
   .genre-container .form-check-input:checked + .form-check-label {
     font-weight: 600;
-    color: #2e86c1;
+    color: #b32d2d;
   }
 
 /* Estilos para dispositivos móviles */
