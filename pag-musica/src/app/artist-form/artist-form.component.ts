@@ -30,7 +30,16 @@ export class ArtistFormComponent implements OnInit {
   toggleGenre(genre: any) {
     genre.checked = !genre.checked;
     this.artistForm.get('estiloMusical')?.setValue(this.generoMusical.filter(item => item.checked).map(item => item.title));
+    let div = document.getElementById("generoSeleccionado");
+
+    const divGeneros = document.getElementById('generoSeleccionado');
+    if (divGeneros) {
+      let contenidSelecion = this.artistForm.get('estiloMusical')?.value.join(', ');
+      
+      divGeneros.innerHTML = `Has seleccionado los siguientes estilos musicales: ` + "<br><b>"+`${contenidSelecion}` + "</b>";
+    }
   }
+ 
 
   validateFechaNacimiento(control: FormControl): { [key: string]: boolean } | null {
     const fechaNacimiento = new Date(control.value);
@@ -42,4 +51,9 @@ export class ArtistFormComponent implements OnInit {
 
     return null;
   }
+  mostrarGenerosMusicales() {
+
+    return this.generoMusical.filter(item => item.checked);
+  }
 }
+
